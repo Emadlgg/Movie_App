@@ -1,0 +1,9 @@
+.pagination {
+  button {
+    min-width: 40px;
+    
+    &.active {
+      cursor: default;
+    }
+  }
+}

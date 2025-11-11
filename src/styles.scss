@@ -1,1 +1,493 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset y Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #09090b 0%, #18181b 50%, #09090b 100%);
+  background-attachment: fixed;
+  color: #f4f4f5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Container Custom */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Scrollbar Personalizado - Dorado */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #18181b;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d97706 0%, #92400e 100%);
+  border-radius: 5px;
+  
+  &:hover {
+    background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
+  }
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d97706 #18181b;
+}
+
+/* Animaciones Globales */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(251, 191, 36, 0.5), 0 0 10px rgba(251, 191, 36, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.8), 0 0 30px rgba(251, 191, 36, 0.5);
+  }
+}
+
+/* Utilidades de Animación */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.5s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Text Clamp Utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Focus Styles - Dorado */
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+/* Disabled Styles */
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading Skeleton con brillo dorado */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #18181b 0%,
+    #27272a 25%,
+    rgba(251, 191, 36, 0.1) 50%,
+    #27272a 75%,
+    #18181b 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Card Hover Effect */
+.card-hover {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.3),
+      0 0 15px rgba(251, 191, 36, 0.3);
+  }
+}
+
+/* Gradient Text - Dorado */
+.gradient-text {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-red {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Backdrop Blur */
+.backdrop-blur-custom {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Custom Button Styles */
+.btn-primary {
+  @apply px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-glow-red;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-gradient-to-r from-gold-600 to-gold-700 hover:from-gold-700 hover:to-gold-800 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-glow-gold;
+}
+
+.btn-success {
+  @apply px-6 py-3 bg-gradient-to-r from-success-600 to-success-700 hover:from-success-700 hover:to-success-800 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-glow-green;
+}
+
+.btn-outline {
+  @apply px-6 py-3 border-2 border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-black font-semibold rounded-lg transition-all;
+}
+
+/* Custom Input Styles */
+.input-custom {
+  @apply w-full px-4 py-3 bg-dark-900 text-white rounded-lg border border-dark-700 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500 focus:ring-opacity-50 transition-all;
+}
+
+/* Badge Styles */
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.badge-success {
+  @apply bg-success-900 bg-opacity-50 text-success-400 border border-success-700;
+}
+
+.badge-warning {
+  @apply bg-gold-900 bg-opacity-50 text-gold-400 border border-gold-700;
+}
+
+.badge-error {
+  @apply bg-red-900 bg-opacity-50 text-red-400 border border-red-700;
+}
+
+.badge-info {
+  @apply bg-dark-800 bg-opacity-50 text-gold-400 border border-dark-700;
+}
+
+/* Alert Styles */
+.alert {
+  @apply p-4 rounded-lg border;
+}
+
+.alert-success {
+  @apply bg-success-900 bg-opacity-50 border-success-700 text-success-200;
+}
+
+.alert-warning {
+  @apply bg-gold-900 bg-opacity-50 border-gold-700 text-gold-200;
+}
+
+.alert-error {
+  @apply bg-red-900 bg-opacity-50 border-red-700 text-red-200;
+}
+
+.alert-info {
+  @apply bg-dark-900 bg-opacity-50 border-gold-700 text-gold-200;
+}
+
+/* Responsive Grid */
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.grid-auto-fill {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Image Placeholder */
+.image-placeholder {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #7f1d1d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* Rating Stars - Dorado */
+.rating-stars {
+  display: flex;
+  gap: 0.25rem;
+  
+  svg {
+    color: #fbbf24;
+    filter: drop-shadow(0 0 2px rgba(251, 191, 36, 0.5));
+  }
+}
+
+/* Transitions */
+.transition-custom {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glass Effect con tinte dorado */
+.glass-effect {
+  background: rgba(24, 24, 27, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(251, 191, 36, 0.1);
+}
+
+/* Hover Glow Effect - Dorado */
+.hover-glow {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+  }
+}
+
+.hover-glow-red {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+  }
+}
+
+/* No Select */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Truncate Text */
+.truncate-custom {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Divider con gradiente */
+.divider-gradient {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+}
+
+/* Responsive Utilities */
+@media (max-width: 640px) {
+  .container-custom {
+    @apply px-3;
+  }
+  
+  h1 {
+    @apply text-2xl;
+  }
+  
+  h2 {
+    @apply text-xl;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .container-custom {
+    @apply px-4;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container-custom {
+    @apply px-6;
+  }
+}
+
+@media (min-width: 1025px) {
+  .container-custom {
+    @apply px-8;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Autofill Styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #18181b inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Selection Color - Dorado */
+::selection {
+  background: #fbbf24;
+  color: #09090b;
+}
+
+::-moz-selection {
+  background: #fbbf24;
+  color: #09090b;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus Visible */
+.focus-visible:focus {
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Efecto de brillo en hover para tarjetas */
+.card-shimmer {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(251, 191, 36, 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+}

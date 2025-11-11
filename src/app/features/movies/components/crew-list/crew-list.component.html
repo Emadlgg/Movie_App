@@ -1,0 +1,17 @@
+<div class="crew-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div 
+    *ngFor="let group of groupedCrew"
+    class="crew-department bg-dark-900 rounded-lg p-4 border border-dark-800"
+  >
+    <h3 class="text-lg font-semibold text-white mb-3">{{ group.department }}</h3>
+    <div class="space-y-2">
+      <div 
+        *ngFor="let member of group.members"
+        class="crew-member"
+      >
+        <p class="text-white text-sm font-medium">{{ member.name }}</p>
+        <p class="text-dark-400 text-xs">{{ member.job }}</p>
+      </div>
+    </div>
+  </div>
+</div>

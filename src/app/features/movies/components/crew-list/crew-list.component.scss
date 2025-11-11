@@ -1,0 +1,9 @@
+.crew-member {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #334155;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}

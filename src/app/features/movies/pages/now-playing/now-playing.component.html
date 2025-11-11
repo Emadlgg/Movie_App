@@ -1,0 +1,54 @@
+<div class="now-playing-page" appInfiniteScroll (scrolled)="onScroll()">
+  <!-- Header -->
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold text-white mb-2">Películas en Cartelera</h1>
+    <p class="text-dark-400">Descubre las películas que están actualmente en los cines</p>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters-section mb-8 space-y-4">
+    <app-search-bar (searchChange)="onSearch($event)"></app-search-bar>
+    <app-date-range-filter (dateRangeChange)="onDateRangeChange($event)"></app-date-range-filter>
+  </div>
+
+  <!-- Loading -->
+  <app-loader *ngIf="isLoading"></app-loader>
+
+  <!-- Movies Grid -->
+  <div *ngIf="!isLoading && movies.length > 0" class="movies-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-8">
+    <app-movie-card 
+      *ngFor="let movie of movies" 
+      [movie]="movie"
+      (movieClick)="onMovieClick($event)"
+    ></app-movie-card>
+  </div>
+
+  <!-- No Results -->
+  <div *ngIf="!isLoading && movies.length === 0" class="text-center py-16">
+    <svg class="w-24 h-24 mx-auto text-slate-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/>
+    </svg>
+    <h3 class="text-xl font-semibold text-white mb-2">No se encontraron películas</h3>
+    <p class="text-dark-400">Intenta ajustar los filtros de búsqueda</p>
+  </div>
+
+  <!-- Loading More -->
+  <div *ngIf="isLoadingMore" class="text-center py-8">
+    <div class="inline-flex items-center gap-2 text-gold-500">
+      <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      <span>Cargando más películas...</span>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div *ngIf="!isLoading && movies.length > 0 && totalPages > 1" class="mt-12">
+    <app-pagination 
+      [currentPage]="currentPage"
+      [totalPages]="totalPages"
+      (pageChange)="onPageChange($event)"
+    ></app-pagination>
+  </div>
+</div>
