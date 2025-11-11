@@ -197,7 +197,7 @@ npm install
 
 **Osman De León**
 - Email: osmanemanuel2004@gmail.com
-- GitHub: [@osmanemanuel](https://github.com/osmanemanuel)
+- GitHub: [@Emadlgg](https://github.com/Emadlgg)
 
 ---
 
