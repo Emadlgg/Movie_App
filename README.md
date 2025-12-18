@@ -1,4 +1,4 @@
-# 🎬 MovieApp - Prueba Técnica Frontend
+# 🎬 MovieApp
 
 Aplicación web desarrollada con **Angular 20** y **TailwindCSS** que consume la API de **TMDB** para explorar películas.
 
