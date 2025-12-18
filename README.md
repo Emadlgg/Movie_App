@@ -52,8 +52,8 @@ Angular CLI >= 20.0.0
 
 ### 1. Clonar repositorio
 ```bash
-git clone https://github.com/tu-usuario/PRUEBA_PAGALO_OSMAN_DE_LEON.git
-cd PRUEBA_PAGALO_OSMAN_DE_LEON
+git clone https://github.com/Emadlgg/Movie_App.git
+cd Movie_App
 ```
 
 ### 2. Instalar dependencias
